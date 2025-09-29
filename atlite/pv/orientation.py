@@ -125,8 +125,8 @@ def SurfaceOrientation(ds, solar_position, orientation, tracking=None):
         )
         surface_slope = abs(rotation)
         surface_azimuth = axis_azimuth + arcsin(
-            sin(rotation / sin(surface_slope))
-        )  # the 2nd part yields +/-1 and determines if the panel is facing east or west
+            sin(rotation) / sin(surface_slope))
+         # the 2nd part yields +/-1 and determines if the panel is facing east or west
         cosincidence = cos(surface_slope) * sin(sun_altitude) + sin(
             surface_slope
         ) * cos(sun_altitude) * cos(sun_azimuth - surface_azimuth)
